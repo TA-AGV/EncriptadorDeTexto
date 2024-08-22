@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador AGV</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <img src="./assets/logo.png" alt="logoAlura">
+    </header>
+    <main>
+        <h1> Encriptador AGV </h1>
+        <textarea id="inputTexto" rows="10" cols="50" placeholder="Ingrese el texto Aqui">
+        </textarea>
+        <button onclick="encriptarTexto()">Encriptar</button>
+        <button onclick="desencriptarTexto()">Desencriptar</button>
+        <div id="componente1">
+            <img src="./assets/muneco.png" alt="muñeco">
+            <h2>Ningun mensaje fue encontrado</h2>
+            <p>Ingrese el texto que desea encriptar o desencriptar.</p>
+        </div>
+        <div id="componente2" hidden>
+            <textarea id="outputTexto" rows="10" cols="50"  readonly></textarea>
+        </div>
+    </main>
+    <footer>
+        <p>@copy, AGV 2024</p>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 'use strict';
+
 function encriptar(arr) {
     return arr.split('').map((str) => {
         switch (str) {
@@ -18,44 +19,50 @@ function encriptar(arr) {
     }).join('');
 }
 
+function desencripta(cadena) {
 
-function desencripta(arr1) {
+    const palabrasAReemplazar=['ai','enter','imes','ober','ufat'];
+    const vocales=['a','e','i','o','u'];
 
-    function escapeRegExp(arr1) {
-        return arr1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+    for(let i=0; i<palabrasAReemplazar.length;i++){
+        cadena=cadena.replace(new RegExp(palabrasAReemplazar[i],'g'),vocales[i]);
     }
-    const pattern = escapeRegExp(arr1);
-    const regex = new RegExp(pattern, 'g');
-    console.log(regex);
-    const result = arr1.replace(regex, function (match) {
-        switch (match) {
-            case 'ai': return 'a';
-            case 'enter': return 'e';
-            case 'imes': return 'i';
-            case 'ober': return 'o';
-            case 'ufat': return 'u';
-        }
-    });
-    return result;
+    return cadena;
 }
 
 function encriptarTexto() {
     var primerComponente = document.getElementById('componente1');
-    var segundoComponente = document.getElementById('componente2');
+    var segundoComponente=document.getElementById('componente2');
     if (!primerComponente.hidden) {
-        segundoComponente.hidden = false;
-        primerComponente.hidden = true;
+        segundoComponente.style.display = "flex";
+        primerComponente.style.display = "none";
     }
-    let textoIngresado = document.getElementById('inputTexto').value;
+    let elementoIngreso = document.getElementById('inputTexto');
+    let textoIngresado = elementoIngreso.value;
     let textoEncriptado = encriptar(textoIngresado);
     let resultado = document.getElementById('outputTexto');
     resultado.textContent = textoEncriptado;
+    elementoIngreso.value="";
 }
 
 function desencriptarTexto() {
-    let textADesencriptar = document.getElementById('outputTexto').value;
-    let textDesencriptado = desencripta(textADesencriptar);
-    console.log(textDesencriptado);
+    var primerComponente = document.getElementById('componente1');
+    var segundoComponente=document.getElementById('componente2');
+    if (!primerComponente.hidden) {
+        segundoComponente.style.display = "flex";
+        primerComponente.style.display = "none";
+    }
+    let elementoCapturado = document.getElementById('inputTexto');
+    let textoIngresado=elementoCapturado.value;
+    let textDesencriptado = desencripta(textoIngresado);
+    let resultado = document.getElementById('outputTexto');
+    resultado.textContent=textDesencriptado;
+    elementoCapturado.value="";
+}
 
-
+function copiar(){
+    const contenidoTextArea=document.getElementById('outputTexto');
+    const botonCopiar = document.getElementById('btn-copy');
+    contenidoTextArea.select();
+    document.execCommand("copy");
 }

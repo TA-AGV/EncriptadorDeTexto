@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador AGV</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
+
 <body>
     <header>
         <img src="./assets/logo.png" alt="logoAlura">
+        <h1> Encriptador AGV </h1>
     </header>
     <main>
-        <h1> Encriptador AGV </h1>
-        <textarea id="inputTexto" rows="10" cols="50" placeholder="Ingrese el texto Aqui">
-        </textarea>
-        <button onclick="encriptarTexto()">Encriptar</button>
-        <button onclick="desencriptarTexto()">Desencriptar</button>
+        <div id="componente">
+            <div class="content">
+                <textarea id="inputTexto" value="" placeholder="Ingrese el texto Aqui"></textarea>
+                <div class="warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Solo letra minusculas y sin acentos</p>
+                </div>
+            </div>
+            <div class="botones">
+                <button class="btn blue" onclick="encriptarTexto()">Encriptar</button>
+                <button class="btn gray" onclick="desencriptarTexto()">Desencriptar</button>
+            </div>
+        </div>
         <div id="componente1">
             <img src="./assets/muneco.png" alt="muñeco">
             <h2>Ningun mensaje fue encontrado</h2>
             <p>Ingrese el texto que desea encriptar o desencriptar.</p>
         </div>
-        <div id="componente2" hidden>
-            <textarea id="outputTexto" rows="10" cols="50"  readonly></textarea>
+        <div id="componente2" style="display: none;">
+            <textarea id="outputTexto" readonly></textarea>
+            <button id="btn-copy" onclick="copiar()">Copiar</button>
         </div>
     </main>
     <footer>
@@ -30,4 +48,5 @@
     </footer>
     <script src="./js/app.js"></script>
 </body>
+
 </html>
